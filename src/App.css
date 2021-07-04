@@ -1,38 +1,115 @@
-.App {
+.main-icon{
+  height: 30px;
+  width: 30px;
+  padding-right: 5px;
+}
+span svg{
+  color: white;
+  margin:0px 10px 0px 10px;
+}
+.facebook-logo,.addtocart-icon{
+  margin-right: 5px;
+}
+.card,.modal-items,.modal-item-info{
+  margin: 10px;
+  display: inline-block !important;
+}
+.edit-items{
+  margin-left: 330px;
+  font-family: cursive;
+  top: 20px !important;
+}
+.modal-data{
+  position: absolute;
+  top: 0;
+}
+.modal-image-img{
+  width: 285px;
+  height: 323px;
+}
+.modal-order{
+  margin-left: 50px;
+  position: absolute;
+  top: 100px;
+}
+.modal-scents{
+  margin-left: 50px;
+  position: absolute;
+  top: 180px;
+}
+.modal-item-info{
+  margin: 40px;
+}
+.modal-item-labels{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+}
+.edit-item-labels{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 30px;
+}
+.card-body{
+  background-color: gainsboro !important;
+}
+.card-body{
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.item-buttons{
+  margin: 5px;
+}
+.item-scent-container{
+  overflow-x: auto;
+  max-width: 415px;
+  background-color: #d6d5d5;
+  border-radius: 5px;
+}
+.item-scent-image{
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  border-radius: 5px;
+}
+.item-scent{
+  display: table-cell;
+  padding: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.item-scent-container::-webkit-scrollbar-track{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.item-scent-container::-webkit-scrollbar{
+	width: 5px;
+	background-color: #F5F5F5;
 }
 
-.App-link {
-  color: #61dafb;
+.item-scent-container::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hidden{
+  display: none;
+}
+.item-selected{
+  border: 2px solid purple;
+  border-radius: 5px;
+}
+.open-cashier {
+  cursor: pointer;
+  background-color:#212529 ;
+  z-index: 99999;
+  float: right !important;
+  color:white;
+  padding: 5px;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  margin-top: 5px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+img.card-img-top {
+  min-height: 20rem;
 }
