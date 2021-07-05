@@ -36,6 +36,7 @@ span svg{
   margin-left: 50px;
   position: absolute;
   top: 180px;
+  max-width: 50%;
 }
 .modal-item-info{
   margin: 40px;
@@ -110,6 +111,38 @@ span svg{
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
+.dropdown-menu {
+  left: auto !important;
+  right: 0 !important;
+}
 img.card-img-top {
   min-height: 20rem;
+}
+@media only screen and (max-width: 768px) {
+  .modal-scents {
+    max-width: 86%;
+    margin-left: 25px;
+    position: unset;
+    top: 0px;
+  }
+  .modal-data {
+    position: unset;
+    top: 0;
+  }
+  .modal-item-info {
+      margin: 0px; 
+      margin-left: 30px !important; 
+      display: inline-block !important;
+  }
+  .modal-order {
+    margin-left: 30px !important;
+    position: unset;
+    top: 0; 
+    width: 86%;
+  }
+  .edit-items {
+     margin-left: 30px; 
+    font-family: cursive;
+    top: 20px !important;
+}
 }

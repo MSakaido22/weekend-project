@@ -168,11 +168,12 @@ export default function Header({database=null,dbstorage=null,adminSignin=null,lo
         <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)}/>
         <AddNewItem show={addModalShow} onHide={() => setAddModalShow(false)}/>
         <Navbar bg="dark" variant="dark">
-            <img alt="logo" className="main-icon" src="https://seeklogo.com/images/H/hentai-haven-logo-B9D8C4B3B8-seeklogo.com.png"></img>
-            <Navbar.Brand href="#home">Haven Scents</Navbar.Brand> 
+            <img alt="logo" className="main-icon" src="https://www.seekpng.com/png/full/133-1334437_rwby-ruby-rose-rwby-ruby-rose-transparent.png"></img>
+            <Navbar.Brand href="#home">The Weekend Project</Navbar.Brand> 
             <Nav className="mr-auto">
-                {/* <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#features">Features</Nav.Link> */}
+                <Nav.Link href="#home">Home</Nav.Link>
+                <Nav.Link href="#Products">Products</Nav.Link>
+                <Nav.Link href="#Packages">Packages</Nav.Link>
                 <Nav.Link onClick={adminHandler}>Admin</Nav.Link>
             </Nav>
             <Navbar.Collapse className="justify-content-end">

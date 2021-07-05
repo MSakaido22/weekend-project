@@ -204,8 +204,14 @@ export default function Body({database=null,dbstorage=null,username=null}) {
           </Modal>
         );
       })
-    return (
+return (
         <>
+            <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)}/>
+            <EditItemsModal show={editItemModalShow} onHide={() => setEditItemModalShow(false)}/>
+            <CartModal show={cartModalShow} onHide={() => setCartModalShow(false)}/>
+            <div className="open-cashier" onClick={CashierHandler}>
+                    <FaShoppingCart id="cart-icon"/>CART
+            </div>
         {
             items.map(item=>(
                 <Card style={{ width: '20rem' }} key={item.id}>
@@ -219,12 +225,6 @@ export default function Body({database=null,dbstorage=null,username=null}) {
                 </Card>
             ))
         }
-            <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)}/>
-            <EditItemsModal show={editItemModalShow} onHide={() => setEditItemModalShow(false)}/>
-            <CartModal show={cartModalShow} onHide={() => setCartModalShow(false)}/>
-            <div className="open-cashier" onClick={CashierHandler}>
-                    <FaShoppingCart id="cart-icon"/>CART
-            </div>
         </>
     )
 }
