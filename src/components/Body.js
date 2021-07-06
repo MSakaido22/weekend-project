@@ -87,11 +87,11 @@ export default function Body({database=null,dbstorage=null,username=null}) {
         document.getElementById("item-scent-url").value = variantURL;
         document.getElementById("item-scent-id").value = scentName;
         document.getElementById(`item-scent-`+itemId).className  = "item-selected item-scent";
-        
+
     }
     const MyVerticallyCenteredModal = ((props)=> {
         return (
-          <Modal
+           <Modal
             {...props}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"

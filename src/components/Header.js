@@ -163,20 +163,22 @@ export default function Header({database=null,dbstorage=null,adminSignin=null,lo
           </Modal>
         );
       })
-    return (
+      return (
         <>
-        <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)}/>
-        <AddNewItem show={addModalShow} onHide={() => setAddModalShow(false)}/>
-        <Navbar bg="dark" variant="dark">
-            <img alt="logo" className="main-icon" src="https://www.seekpng.com/png/full/133-1334437_rwby-ruby-rose-rwby-ruby-rose-transparent.png"></img>
-            <Navbar.Brand href="#home">The Weekend Project</Navbar.Brand> 
-            <Nav className="mr-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#Products">Products</Nav.Link>
-                <Nav.Link href="#Packages">Packages</Nav.Link>
-                <Nav.Link onClick={adminHandler}>Admin</Nav.Link>
-            </Nav>
-            <Navbar.Collapse className="justify-content-end">
+            <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)}/>
+            <AddNewItem show={addModalShow} onHide={() => setAddModalShow(false)}/>
+            <Navbar bg="dark" variant="dark" expand="lg">
+            
+            <Navbar.Brand href="#Home"><img alt="logo" className="main-icon" src="https://www.seekpng.com/png/full/133-1334437_rwby-ruby-rose-rwby-ruby-rose-transparent.png"></img>The Weekend Project</Navbar.Brand> 
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                 <Nav className="mr-auto">
+                    <Nav.Link href="#Home">Home</Nav.Link>
+                    <Nav.Link href="#Products">Products</Nav.Link>
+                    <Nav.Link href="#Packages">Packages</Nav.Link>
+                    <Nav.Link onClick={adminHandler}>Admin</Nav.Link>
+                 </Nav>
+                 <Navbar.Collapse className="justify-content-end">
                 {
                     username !== "Login with Facebook"?
                     <>
@@ -200,7 +202,8 @@ export default function Header({database=null,dbstorage=null,adminSignin=null,lo
                     <Button onClick={login}><GrFacebook className="facebook-logo"></GrFacebook>{username}</Button>
                 }
             </Navbar.Collapse>
-        </Navbar>
-      </>
+            </Navbar.Collapse>
+            </Navbar>
+        </>
     )
 }
