@@ -5,7 +5,6 @@ import { GrFacebook } from 'react-icons/gr';
 import { RiAddBoxFill } from 'react-icons/ri';
 
 
-
 export default function Header({database=null,dbstorage=null,adminSignin=null,login=null,logout=null,username=""}) {
     const [modalShow, setModalShow] = useState(false);
     const [addModalShow, setAddModalShow] = useState(false);
@@ -44,10 +43,9 @@ export default function Header({database=null,dbstorage=null,adminSignin=null,lo
             <Modal.Body>
                 <Form>
                     <Form.Group className="mb-3" controlId="email">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Label>Email Address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter Email" />
                         <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
                         </Form.Text>
                     </Form.Group>
 
@@ -176,6 +174,7 @@ export default function Header({database=null,dbstorage=null,adminSignin=null,lo
                     <Nav.Link href="#Home">Home</Nav.Link>
                     <Nav.Link href="#Products">Products</Nav.Link>
                     <Nav.Link href="#Packages">Packages</Nav.Link>
+                    <Nav.Link href="#About Us">About Us</Nav.Link>
                     <Nav.Link onClick={adminHandler}>Admin</Nav.Link>
                  </Nav>
                  <Navbar.Collapse className="justify-content-end">

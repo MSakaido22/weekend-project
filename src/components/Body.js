@@ -5,6 +5,8 @@ import { Card,Button,Modal,Col,Image,Form } from 'react-bootstrap';
 import Scents from './Scents';
 
 export default function Body({database=null,dbstorage=null,username=null}) {
+    const [CustomerForm] = useState([]);
+    const [name,address,contact,message] = useState(false);
     const [modalShow, setModalShow] = useState(false);
     const [editItemModalShow, setEditItemModalShow] = useState(false);
     const [cartModalShow, setCartModalShow] = useState(false);
@@ -30,6 +32,14 @@ export default function Body({database=null,dbstorage=null,username=null}) {
         }
     },[database]);
 
+    const redirectCustomerForm = () =>{
+        //To Be Continued...
+        //To Be Continued...
+        //To Be Continued...
+        //To Be Continued...
+        CustomerForm(name,address,contact,message)
+        setModalShow(false)
+    }
     const editItemModalHandler = ((item)=>{
         setEditItemModalShow(true);
         setModalData(item)
@@ -190,7 +200,7 @@ export default function Body({database=null,dbstorage=null,username=null}) {
                         <span>Quantity: </span>{order.qty}<br/>
                         <span>Total: </span>{order.qty * order.price}<br/>
                       </Card.Text>
-                      <Button onClick={()=>removeOrder(order.itemName)} variant="primary">Remove Order</Button>
+                      <Button onClick={()=>removeOrder(order.itemName, order.itemID)} variant="primary">Remove Order</Button>
                     </Card.Body>
                   </Card>
                 ))
@@ -198,8 +208,36 @@ export default function Body({database=null,dbstorage=null,username=null}) {
                 <div>You currently have no item in the Cart.</div>
               } 
             </Modal.Body>
+            <Modal.Body>
+                <Form>
+                    <Form.Group className="mb-3" controlId="email">
+                        <Form.Label>Customer Name</Form.Label>
+                        <Form.Control type="name" placeholder="Enter Name" />
+                        <Form.Text className="text-muted">
+                        </Form.Text>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="email">
+                        <Form.Label>Address</Form.Label>
+                        <Form.Control type="address" placeholder="Enter Address" />
+                        <Form.Text className="text-muted">
+                        </Form.Text>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="email">
+                        <Form.Label>Contact Number</Form.Label>
+                        <Form.Control type="contact" placeholder="Enter Contact" />
+                        <Form.Text className="text-muted">
+                        </Form.Text>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="email">
+                        <Form.Label>Message</Form.Label>
+                        <Form.Control type="message" placeholder="Enter Message" />
+                        <Form.Text className="text-muted">
+                        </Form.Text>
+                    </Form.Group>
+                </Form>
+            </Modal.Body>
             <Modal.Footer>
-              <Button onClick={()=>window.location.href="https://www.youtube.com/watch?v=o-YBDTqX_ZU"}><FaPaypal className="addtocart-icon"></FaPaypal>Checkout</Button>
+              <Button onClick={redirectCustomerForm}><FaPaypal className="addtocart-icon"></FaPaypal>Checkout</Button>
             </Modal.Footer>
           </Modal>
         );
