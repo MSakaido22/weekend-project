@@ -141,7 +141,6 @@ export default function Header({database=null,dbstorage=null,adminSignin=null,lo
                     <Form.Label>Item Scents</Form.Label>
                     <Form.Control type="file" multiple />
                 </Form.Group>
-
                 <Form.Group controlId="item-name" className="mb-3">
                     <Form.Label>Item Name</Form.Label>
                 <Form.Control type="text" placeholder="Enter name" />
