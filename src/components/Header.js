@@ -45,8 +45,6 @@ export default function Header({database=null,dbstorage=null,adminSignin=null,lo
                     <Form.Group className="mb-3" controlId="email">
                         <Form.Label>Email Address</Form.Label>
                         <Form.Control type="email" placeholder="Enter Email" />
-                        <Form.Text className="text-muted">
-                        </Form.Text>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="password">

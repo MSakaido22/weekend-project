@@ -163,6 +163,14 @@ export default function Body({database=null,dbstorage=null,username=null}) {
         });
         setOrders(newOrders)
       }
+      function handleUpload(e) {
+          var cust_Email = document.getElementById("cust_Email").value;
+          
+          database.collection('customer_info').add({
+              cust_Email: cust_Email,
+          })
+          setCartModalShow(false)
+      }
       const CartModal = ((props)=> {
         return (
           <Modal
@@ -180,6 +188,7 @@ export default function Body({database=null,dbstorage=null,username=null}) {
               {
               orders.length > 0 ?
               orders.map((order)=>(
+                <>
                   <Card style={{ width: '18rem' }} key={order.itemID}>
                     <Card.Img variant="top" src={order.url} />
                     <Card.Body>
@@ -192,13 +201,19 @@ export default function Body({database=null,dbstorage=null,username=null}) {
                       <Button onClick={()=>removeOrder(order.itemName, order.itemID)} variant="primary">Remove Order</Button>
                     </Card.Body>
                   </Card>
+                  
+                    <Form.Group className="mb-3" controlId="cust_Email">
+                        <Form.Label>Email Address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter Email" />
+                    </Form.Group>
+                  </>
                 ))
                 :
                 <div>You currently have no item in the Cart.</div>
               } 
             </Modal.Body>
             <Modal.Footer>
-              <Button onClick={()=>window.location.href="https://youtu.be/3jDFa6ifSSg"}><FaPaypal className="addtocart-icon"></FaPaypal>Checkout</Button>
+              <Button onClick={handleUpload}><FaPaypal className="addtocart-icon"></FaPaypal>Checkout</Button>
             </Modal.Footer>
           </Modal>
         );
