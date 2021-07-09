@@ -1,6 +1,7 @@
 
 import React,{ useState , useEffect } from 'react'
-import { FaEye,FaCartPlus,FaRegEdit,FaSave,FaShoppingCart,FaPaypal } from 'react-icons/fa';
+import { FaEye,FaCartPlus,FaRegEdit,FaSave,FaCashRegister } from 'react-icons/fa';
+import { ImCart } from 'react-icons/im';
 import { Card,Button,Modal,Col,Image,Form } from 'react-bootstrap';
 import Scents from './Scents';
 
@@ -164,10 +165,24 @@ export default function Body({database=null,dbstorage=null,username=null}) {
         setOrders(newOrders)
       }
       function handleUpload(e) {
-          var cust_Email = document.getElementById("cust_Email").value;
+          var cust_Name = document.getElementById("cust_Name").value;
           
           database.collection('customer_info').add({
-              cust_Email: cust_Email,
+              cust_Name: cust_Name,
+          })
+          setCartModalShow(false)
+
+          var cust_Con = document.getElementById("cust_Con").value;
+          
+          database.collection('customer_info').add({
+              cust_Con: cust_Con,
+          })
+          setCartModalShow(false)
+          
+          var cust_Add = document.getElementById("cust_Add").value;
+          
+          database.collection('customer_info').add({
+              cust_Add: cust_Add,
           })
           setCartModalShow(false)
       }
@@ -202,9 +217,17 @@ export default function Body({database=null,dbstorage=null,username=null}) {
                     </Card.Body>
                   </Card>
                   
-                    <Form.Group className="mb-3" controlId="cust_Email">
-                        <Form.Label>Email Address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter Email" />
+                    <Form.Group className="mb-3" controlId="cust_Name">
+                        <Form.Label>Customer Name</Form.Label>
+                        <Form.Control type="email" placeholder="Enter Name" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="cust_Con">
+                        <Form.Label>Customer Contact</Form.Label>
+                        <Form.Control type="email" placeholder="Enter Contact" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="cust_Add">
+                        <Form.Label>Customer Address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter Address" />
                     </Form.Group>
                   </>
                 ))
@@ -213,7 +236,7 @@ export default function Body({database=null,dbstorage=null,username=null}) {
               } 
             </Modal.Body>
             <Modal.Footer>
-              <Button onClick={handleUpload}><FaPaypal className="addtocart-icon"></FaPaypal>Checkout</Button>
+              <Button onClick={handleUpload}><FaCashRegister className="addtocart-icon"></FaCashRegister>Checkout</Button>
             </Modal.Footer>
           </Modal>
         );
@@ -224,7 +247,7 @@ return (
             <EditItemsModal show={editItemModalShow} onHide={() => setEditItemModalShow(false)}/>
             <CartModal show={cartModalShow} onHide={() => setCartModalShow(false)}/>
             <div className="open-cashier" onClick={CashierHandler}>
-                    <FaShoppingCart id="cart-icon"/>CART
+                    <ImCart id="cart-icon"/>CART
             </div>
         {
             items.map(item=>(
