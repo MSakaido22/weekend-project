@@ -32,6 +32,10 @@ span svg{
   position: absolute;
   top: 100px;
 }
+.modal-body {
+  max-height: 600px;
+  overflow-y: auto;
+}
 .modal-scents{
   margin-left: 50px;
   position: absolute;
@@ -48,6 +52,9 @@ span svg{
 .edit-item-labels{
   font-family: 'Times New Roman', Times, serif;
   font-size: 30px;
+}
+.list-item-name{
+  text-align: center;
 }
 .card-body{
   background-color: gainsboro !important;

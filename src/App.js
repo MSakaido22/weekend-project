@@ -69,11 +69,12 @@ const signOut = async () =>{
     console.log(error);
   }
 }
+console.log(user)
 return (
     <>
     <div className="pageBG">
-         <Header database={db} dbstorage={storage} adminSignin={adminSignin} login={signInWithFacebook} logout={signOut} username={user? user.displayName: "Login with Facebook"}></Header>
-         <Body database={db} dbstorage={storage} username={user? user.displayName: "Login with Facebook"}></Body>
+         <Header userID={user? user.uid : null} database={db} dbstorage={storage} adminSignin={adminSignin} login={signInWithFacebook} logout={signOut} username={user? user.displayName: "Login with Facebook"}></Header>
+         <Body userID={user? user.uid : null} database={db} dbstorage={storage} username={user? user.displayName: "Login with Facebook"}></Body>
     </div>
     </>
   );

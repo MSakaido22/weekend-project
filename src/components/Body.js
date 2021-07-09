@@ -5,7 +5,7 @@ import { ImCart } from 'react-icons/im';
 import { Card,Button,Modal,Col,Image,Form } from 'react-bootstrap';
 import Scents from './Scents';
 
-export default function Body({database=null,dbstorage=null,username=null}) {
+export default function Body({userID=null, database=null,dbstorage=null,username=null}) {
     const [modalShow, setModalShow] = useState(false);
     const [editItemModalShow, setEditItemModalShow] = useState(false);
     const [cartModalShow, setCartModalShow] = useState(false);
@@ -166,25 +166,22 @@ export default function Body({database=null,dbstorage=null,username=null}) {
       }
       function handleUpload(e) {
           var cust_Name = document.getElementById("cust_Name").value;
-          
+          var cust_Con = document.getElementById("cust_Con").value;
+          var cust_Add = document.getElementById("cust_Add").value;
+          console.log("ordedrs",orders)
           database.collection('customer_info').add({
+              userID: userID,
+              cust_Con: cust_Con,
+              cust_Add: cust_Add,
               cust_Name: cust_Name,
           })
-          setCartModalShow(false)
-
-          var cust_Con = document.getElementById("cust_Con").value;
-          
-          database.collection('customer_info').add({
-              cust_Con: cust_Con,
+          orders.map((order)=>{
+            database.collection('customer_order').add({
+                userID: userID,
+                order: order
+            })
           })
-          setCartModalShow(false)
-          
-          var cust_Add = document.getElementById("cust_Add").value;
-          
-          database.collection('customer_info').add({
-              cust_Add: cust_Add,
-          })
-          setCartModalShow(false)
+          setCartModalShow(false)  
       }
       const CartModal = ((props)=> {
         return (
@@ -203,7 +200,6 @@ export default function Body({database=null,dbstorage=null,username=null}) {
               {
               orders.length > 0 ?
               orders.map((order)=>(
-                <>
                   <Card style={{ width: '18rem' }} key={order.itemID}>
                     <Card.Img variant="top" src={order.url} />
                     <Card.Body>
@@ -216,24 +212,22 @@ export default function Body({database=null,dbstorage=null,username=null}) {
                       <Button onClick={()=>removeOrder(order.itemName, order.itemID)} variant="primary">Remove Order</Button>
                     </Card.Body>
                   </Card>
-                  
-                    <Form.Group className="mb-3" controlId="cust_Name">
-                        <Form.Label>Customer Name</Form.Label>
-                        <Form.Control type="email" placeholder="Enter Name" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="cust_Con">
-                        <Form.Label>Customer Contact</Form.Label>
-                        <Form.Control type="email" placeholder="Enter Contact" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="cust_Add">
-                        <Form.Label>Customer Address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter Address" />
-                    </Form.Group>
-                  </>
                 ))
                 :
                 <div>You currently have no item in the Cart.</div>
               } 
+              <Form.Group className="mb-3" controlId="cust_Name">
+                  <Form.Label>Customer Name</Form.Label>
+                  <Form.Control type="email" placeholder="Enter Name" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="cust_Con">
+                  <Form.Label>Customer Contact</Form.Label>
+                  <Form.Control type="email" placeholder="Enter Contact" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="cust_Add">
+                  <Form.Label>Customer Address</Form.Label>
+                  <Form.Control type="email" placeholder="Enter Address" />
+              </Form.Group>
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={handleUpload}><FaCashRegister className="addtocart-icon"></FaCashRegister>Checkout</Button>
