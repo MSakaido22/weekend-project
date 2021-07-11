@@ -286,7 +286,6 @@ export default function Header({userID=null,database=null,dbstorage=null,adminSi
                  <Nav className="mr-auto">
                     <Nav.Link href="#Home">Home</Nav.Link>
                     <Nav.Link href="#Products">Products</Nav.Link>
-                    <Nav.Link href="#Packages">Packages</Nav.Link>
                     <Nav.Link href="#About Us">About Us</Nav.Link>
                     <Nav.Link onClick={adminHandler}>Admin</Nav.Link>
                  </Nav>

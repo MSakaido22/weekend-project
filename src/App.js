@@ -74,7 +74,11 @@ return (
     <>
     <div className="pageBG">
          <Header userID={user? user.uid : null} database={db} dbstorage={storage} adminSignin={adminSignin} login={signInWithFacebook} logout={signOut} username={user? user.displayName: "Login with Facebook"}></Header>
+         <img src="cvr.jpg" style={{width: '100%'}}/>
+         <img src="intr.png" style={{width: '100%'}}/>
+         <img src="prdct.png" style={{width: '100%'}}/>
          <Body userID={user? user.uid : null} database={db} dbstorage={storage} username={user? user.displayName: "Login with Facebook"}></Body>
+         <img src="about.png" style={{width: '100%'}}/>
     </div>
     </>
   );

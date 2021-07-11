@@ -57,7 +57,7 @@ span svg{
   text-align: center;
 }
 .card-body{
-  background-color: gainsboro !important;
+  background-color: #FCC100D1 !important;
 }
 .card-body{
   text-align: center;
@@ -99,7 +99,7 @@ span svg{
 	background-color: #555;
 }
 .navbar {
-    position: sticky;
+    position: fixed;
     padding: .5rem 1rem;
     top: 0;
     z-index: 9999;
