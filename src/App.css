@@ -101,6 +101,7 @@ span svg{
 .navbar {
     position: fixed;
     padding: .5rem 1rem;
+    width: 100%;
     top: 0;
     z-index: 9999;
 }
