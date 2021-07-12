@@ -280,7 +280,7 @@ export default function Header({userID=null,database=null,dbstorage=null,adminSi
             <OrderList show={listModalShow} onHide={() => setListModalShow(false)}/>
             <Navbar bg="dark" variant="dark" expand="lg">
             
-            <Navbar.Brand href="#Home"><img alt="logo" className="main-icon" src="TWP.gif"></img>The Weekend Project</Navbar.Brand> 
+            <Navbar.Brand href="#Home"><img alt="logo" className="main-icon" src="https://www.seekpng.com/png/full/133-1334437_rwby-ruby-rose-rwby-ruby-rose-transparent.png"></img>The Weekend Project</Navbar.Brand> 
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                  <Nav className="mr-auto">
